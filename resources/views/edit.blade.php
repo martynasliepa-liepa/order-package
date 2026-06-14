@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('orders::layout')
 
-@section('content')
+@section('package_content')
 <div class="container mx-auto px-4 py-6 max-w-2xl">
     
     <div class="mb-4">

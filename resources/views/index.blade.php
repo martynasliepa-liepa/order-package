@@ -1,6 +1,6 @@
-@extends('layouts.app') {{-- Čia nurodomas pagrindinio projekto dizaino šablonas --}}
+@extends('orders::layout')
 
-@section('content')
+@section('package_content')
 <div class="container mx-auto px-4 py-6">
     
     <div class="flex justify-between items-center mb-6">
