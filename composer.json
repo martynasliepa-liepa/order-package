@@ -1,0 +1,19 @@
+{
+    "name": "praktika/orders",
+    "description": "Orders package for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Praktika\\Orders\\": "src/",
+            "Praktika\\Orders\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Martynas Liepa"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
