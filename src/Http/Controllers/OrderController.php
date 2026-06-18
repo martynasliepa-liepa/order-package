@@ -13,7 +13,6 @@ public function index(Request $request)
 {
     // Pasijamame busenas drop down sarasui
     $statuses = OrderStatus::all();
-
     // uzklausos struktura
     $query = Order::with(['user', 'status']);
 
@@ -34,19 +33,11 @@ if ($request->filled('search')) {
             $mainSearchQuery->orWhere('id', $search);
         }
         
-        //  teksine paieska
+        //  tekstine paieska
         $mainSearchQuery->orWhere('customer_first_name', 'like', "%{$search}%")
                         ->orWhere('customer_last_name', 'like', "%{$search}%")
                         ->orWhere('customer_email', 'like', "%{$search}%");
-        
-        // Paieška per varotojo id  is lenteles jei toks yra
-        $userModelClass = config('orders.user_model');
-        if ($userModelClass && class_exists($userModelClass)) {
-            $mainSearchQuery->orWhereHas('user', function($userQuery) use ($search) {
-                $userQuery->where('name', 'like', "%{$search}%")
-                          ->orWhere('email', 'like', "%{$search}%");
-            });
-        }
+
     });
 }
 
@@ -98,8 +89,7 @@ if ($request->filled('search')) {
             // sujungiame varda ir pavarde
             $inputFullName  = trim($inputFirstName . ' ' . $inputLastName);
             $userEmail      = strtolower(trim($chosenUser->email));
-            $userDbName     = strtolower(trim($chosenUser->name)); // Tikėtina „jonas jonaitis“
-            // tikriname ar ivestas el pastas arba sujungtas pilnas vardas nesutampa su db irašu
+            $userDbName     = strtolower(trim($chosenUser->name)); 
             $emailChanged = ($inputEmail !== $userEmail);
             $nameChanged  = ($inputFullName !== $userDbName);
             // jei nesutampa pilnas vardas ar el pastas priskiriame null varotojo id
@@ -168,7 +158,7 @@ if ($request->filled('search')) {
     {
         $order = Order::findOrFail($id);
         
-        // istriname susijusias prekes is order_items lenteles, po to pati uzsakuma
+        // istriname susijusias prekes is order_items lenteles, po to pati uzsakyma
         $order->items()->delete();
         
         $order->delete();

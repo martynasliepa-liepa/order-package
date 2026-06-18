@@ -8,8 +8,7 @@ return new class extends Migration {
         Schema::create('order_statuses', function (Blueprint $table) {
             // uzsakumo statuso lenteles duomenys
             $table->id();
-            $table->string('name'); // Naujas, Vykdomas
-            $table->string('slug')->unique(); // new, processing 
+            $table->string('name');
             $table->timestamps();
         });
     }

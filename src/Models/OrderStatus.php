@@ -13,7 +13,6 @@ class OrderStatus extends Model
     // status lenteles laukai
     protected $fillable = [
         'name',
-        'slug',
     ];
 
     // risys su orders

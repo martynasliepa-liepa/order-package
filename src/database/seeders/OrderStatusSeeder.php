@@ -1,6 +1,6 @@
 <?php
 
-namespace Praktika\Orders\Database\Seeders; // Tavo paketo namespace
+namespace Praktika\Orders\Database\Seeders; 
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -11,11 +11,11 @@ class OrderStatusSeeder extends Seeder
     {
         //  busenomis lentele duomenys
         $statuses = [
-            ['id' => 1, 'name' => 'Naujas', 'slug' => 'new'],
-            ['id' => 2, 'name' => 'Apdorojamas', 'slug' => 'processing'],
-            ['id' => 3, 'name' => 'Išsiųstas', 'slug' => 'shipped'],
-            ['id' => 4, 'name' => 'Įvykdytas', 'slug' => 'completed'],
-            ['id' => 5, 'name' => 'Atšauktas', 'slug' => 'cancelled'],
+            ['id' => 1, 'name' => 'Naujas'],
+            ['id' => 2, 'name' => 'Apdorojamas'],
+            ['id' => 3, 'name' => 'Išsiųstas'],
+            ['id' => 4, 'name' => 'Įvykdytas'],
+            ['id' => 5, 'name' => 'Atšauktas'],
         ];
 
         foreach ($statuses as $status) {
@@ -24,7 +24,6 @@ class OrderStatusSeeder extends Seeder
                 ['id' => $status['id']],
                 [
                     'name' => $status['name'],
-                    'slug' => $status['slug'],
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]

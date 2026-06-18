@@ -7,13 +7,10 @@ return new class extends Migration {
     public function up(): void {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            
             // rysys su pagrindiniu uzsakymu
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-            
             // rysys su isorine prekės lentele gali buti null
             $table->unsignedBigInteger('product_id')->nullable()->index();
-            
             // prekes duomenys
             $table->string('product_name'); 
             $table->integer('quantity')->default(1);

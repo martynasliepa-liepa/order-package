@@ -16,10 +16,8 @@ return new class extends Migration {
             $table->string('customer_last_name');
             $table->string('customer_email')->nullable();
             $table->string('customer_phone')->nullable();
-            
             // risys su busenos lentele butinas
             $table->foreignId('order_status_id')->constrained('order_statuses')->onDelete('restrict');
-            
             // papildomi duomenys
             $table->decimal('total_amount', 10, 2)->default(0.00);
             $table->text('notes')->nullable();

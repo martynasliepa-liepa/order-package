@@ -141,7 +141,7 @@
                         <input type="hidden" name="item_id" id="item_id_input" value="">
                         <div>
                             <label class="block text-xs font-semibold text-gray-600 uppercase">Prekės pavadinimas</label>
-                            <input type="text" name="item_name" id="item_name_input" required placeholder="pvz. Batų poros, Paslauga" 
+                            <input type="text" name="item_name" id="item_name_input" required placeholder="Prekės pavadinimas" 
                                 class="w-full mt-1 border border-gray-300 rounded p-2 text-sm focus:ring-blue-200">
                         </div>
 
